@@ -1,0 +1,20 @@
+
+/*Affichage des personnages*/
+.personnage{
+    border-radius:10px;
+    border:1px solid black;
+    margin:5px;
+    background-color: silver;
+    background-image: radial-gradient(ellipse at center bottom, rgba(255,255,255,0), gainsboro);
+    transition: background-color 0.25s;
+    cursor: pointer;
+    font-weight: bold;
+}
+.personnage img{
+    filter: drop-shadow(2px 2px 2px #222);
+    margin-bottom: 3px;
+}
+
+.personnage:hover{
+    background-color: gray;
+}
