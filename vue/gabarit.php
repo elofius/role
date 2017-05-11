@@ -29,7 +29,8 @@
                     <?php
                     $personnages = array();
                     require ('model/Perso.php');
-
+                    $personnage = RecupCSV();    
+               
                     foreach ($personnage as $key => $value){
                         $personnages[] = new personnage($personnage[$key]);
                     }
@@ -45,22 +46,6 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="script.js"></script>
-        <script>
-            var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
-            n = 0;
-            $(document).keydown(function (e) {
-                if (e.keyCode === k[n++]) {
-                    if (n === k.length) {
-                        alert ('Hodor? HODDOOOOOOOOOOOOOOOOR!');
-                        n = 0;
-                        return false;
-                    }
-                }
-                else {
-                    n = 0;
-                }
-            });
-        </script>
+        <script src="contenu/script.js"></script>
     </body>
 </html>

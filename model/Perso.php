@@ -1,42 +1,22 @@
 <?php
-
-$personnage = array();
-//arya
-$personnage['arya']['image'] = "aryastark";
-$personnage['arya']['nom'] = "Arya Stark";
-//brienne
-$personnage['brienne']['image'] = "briennedetorth";
-$personnage['brienne']['nom'] = "Brienne de Torth";
-//daenerys
-$personnage['daenerys']['image'] = "daenerystargaryen";
-$personnage['daenerys']['nom'] = "Daenerys Targaryen";
-//joffrey
-$personnage['joffrey']['image'] = "joffreybaratheon";
-$personnage['joffrey']['nom'] = "Joffrey Baratheon";
-//jon
-$personnage['jon']['image'] = "jonsnow";
-$personnage['jon']['nom'] = "Jon Snow";
-//lelimier
-$personnage['lelimier']['image'] = "lelimier";
-$personnage['lelimier']['nom'] = "Le Limier";
-//marcheur
-$personnage['marcheur']['image'] = "marcheurblanc";
-$personnage['marcheur']['nom'] = "Le Marcheur Blanc";
-//ned
-$personnage['ned']['image'] = "nedstark";
-$personnage['ned']['nom'] = "Ned Stark";
-//robert
-$personnage['robert']['image'] = "robertbaratheon";
-$personnage['robert']['nom'] = "Robert Baratheon";
-//theon
-$personnage['theon']['image'] = "theongreyjoy";
-$personnage['theon']['nom'] = "Theon Greyjoy";
-//tyrion
-$personnage['tyrion']['image'] = "tyrionlannister";
-$personnage['tyrion']['nom'] = "Tyrion Lannister";
-//yara
-$personnage['yara']['image'] = "yaragreyjoy";
-$personnage['yara']['nom'] = "Yara Greyjoy";
+//Lecture du CSV et enregistrement dans un tableau
+function RecupCSV()
+{
+    $fichier = 'contenu/personnages.csv';
+    $perso = array();
+    $csv = new SplFileObject($fichier);
+    $csv->setFlags(SplFileObject::READ_CSV);
+    $csv->setCsvControl(';');
+    
+    foreach ($csv as $ligne){
+       $perso[$ligne[1]]["nom"] = $ligne[0];
+       $perso[$ligne[1]]["image"] = $ligne[1];
+       $perso[$ligne[1]]["vie"] = $ligne[2];
+       $perso[$ligne[1]]["attaque"] = $ligne[3];
+       $perso[$ligne[1]]["defense"] = $ligne[4];
+    }
+    return $perso;
+}
 
 class personnage{
     private $image;
