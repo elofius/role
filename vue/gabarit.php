@@ -55,7 +55,7 @@
                         echo "<div class=\"col-xs-6 col-md-4 text-center\">\r\n";
                         echo "  <div ><p>Vs.</p></div>\r\n";
                         echo "</div>\r\n";
-                        $combattant2->afficherImage();
+                        $combattant2->afficherImageSym();
                         
                         $nom1 = $combattant1->GetNom();
                         $nom2 = $combattant2->GetNom();

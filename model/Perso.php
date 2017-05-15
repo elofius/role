@@ -77,14 +77,23 @@ class personnage{
         echo "  <div class=\"personnage\"><p><a href=\"?perso=".$this->image."&vie=".$this->vie."&attaque=".$this->attaque."&defense=".$this->defense."\">".$this->nom."</a></p><img src=\"contenu/img/".$this->image.".png\" class=\"img-responsive center-block\"/></div>\r\n";
         echo "</div>\r\n";
     }
+    public function afficherImageSym()
+    {
+        echo "<div class=\"col-xs-6 col-md-2 text-center\">\r\n";
+        echo "  <div class=\"personnage\"><p><a href=\"?perso=".$this->image."&vie=".$this->vie."&attaque=".$this->attaque."&defense=".$this->defense."\">".$this->nom."</a></p><img src=\"contenu/img/".$this->image.".png\" class=\"img-responsive center-block\" style=\"transform: scaleX(-1);\"/></div>\r\n";
+        echo "</div>\r\n";
+    }
     public function attaque($mechant){
-        if ($this->attaque > $mechant->defense){
-            $vieEnMoins = $this->attaque - $mechant->defense;
+        $rand = rand(-10, 10);
+        $attaque = $this->attaque + $rand;
+        $defense = $mechant->defense + rand(-10,10);
+        if ($attaque > $defense){
+            $vieEnMoins = $attaque - $defense;
         }
         else{
             $vieEnMoins = 1;
         }
         $mechant->SetVie($vieEnMoins);
-        echo $this->nom ."attaque et inflige $vieEnMoins points de dégats!<br />";
+        echo "<b>".$this->nom ."</b> attaque et inflige <b>".$vieEnMoins."</b> points de dégats!<br />";
     }
 }
