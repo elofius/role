@@ -7,7 +7,6 @@
     background-color: silver;
     background-image: radial-gradient(ellipse at center bottom, rgba(255,255,255,0), gainsboro);
     transition: background-color 0.25s;
-    cursor: pointer;
     font-weight: bold;
 }
 .personnage img{
