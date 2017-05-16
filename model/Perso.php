@@ -18,22 +18,6 @@ function RecupCSV()
     return $perso;
 }
 
-function perso($nom, $image, $vie, $attaque, $defense,$nom2, $image2, $vie2, $attaque2, $defense2){
-    $perso = array();
-    $perso[$image]["nom"] = $nom;
-    $perso[$image]["image"] = $image;
-    $perso[$image]["vie"] = $vie;
-    $perso[$image]["attaque"] = $attaque;
-    $perso[$image]["defense"] = $defense;
-    $perso[$image2]["nom"] = $nom2;
-    $perso[$image2]["image"] = $image2;
-    $perso[$image2]["vie"] = $vie2;
-    $perso[$image2]["attaque"] = $attaque2;
-    $perso[$image2]["defense"] = $defense2;
-    
-    return $perso;
-}
-
 class personnage{
     private $image;
     private $nom;
