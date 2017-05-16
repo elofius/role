@@ -6,7 +6,7 @@ require ('model/Perso.php');
 $personnage = RecupCSV();
 
 foreach ($personnage as $key => $value){
-    if ($key == $_GET['perso'])
+    if ($key == filter_input(INPUT_GET,'perso',FILTER_SANITIZE_STRING))
     {
     $combattant1 = new personnage($personnage[$key]);
     }
@@ -14,7 +14,7 @@ foreach ($personnage as $key => $value){
 echo "<div class=\"col-xs-6 col-md-2 text-center\">\r\n";
 echo "  <div ></div>\r\n";
 echo "</div>\r\n";
-$combattant1->SetPerso($_GET['vie'], $_GET['attaque'], $_GET['defense']);
+$combattant1->SetPerso(filter_input(INPUT_GET,'vie',FILTER_SANITIZE_STRING), filter_input(INPUT_GET,'attaque',FILTER_SANITIZE_NUMBER_INT), filter_input(INPUT_GET,'defense',FILTER_SANITIZE_NUMBER_INT));
 $hasard = array_rand($personnage);
 $combattant2 = new personnage($personnage[$hasard]);
 $combattant1->afficherImage();
